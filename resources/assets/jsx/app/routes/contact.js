@@ -190,22 +190,6 @@ class Contact extends React.Component {
                     showModal: true
                 })
 
-
-                this.clearForm(form)
-                fetch('./apiPHP/index.php',{
-                method:'post',
-                headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body:data
-                })
-                .then(function(res){
-                return res.text()
-                })
-                .catch(function(err){
-                console.log(err);
-                });
-
             }
         }
 
