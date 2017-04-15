@@ -12,6 +12,7 @@ const NODE_MODULES='../node_modules'
 module.exports = {
     entry: {
         app:'./resources/assets/jsx/app.main.jsx',
+        admin:'./resources/assets/jsx/app.main.admin.jsx'
     },
     module: {
         rules: [
@@ -56,8 +57,21 @@ module.exports = {
             //     collapseWhitespace: true
             // },
             hash: true,
+            excludeChunks:['admin'],
             template: './resources/index.ejs', // Load a custom template (ejs by default see the FAQ for details)
         }),
+        new HtmlWebpackPlugin({
+            title: 'Infonet Soluciones Project Administrador',
+            // minify: {
+            //     collapseWhitespace: true
+            // },
+            hash: true,
+            filename:'admin.html',
+            Chunks: ['admin'],
+            excludeChunks:['app'],
+            template: './resources/admin.ejs', // Load a custom template (ejs by default see the FAQ for details)
+        }),
+
         new ExtractTextPlugin({
             filename: 'assets/css/[name]-[chunkhash].css',
             disable: false,
