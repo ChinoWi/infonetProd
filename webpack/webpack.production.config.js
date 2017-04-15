@@ -24,7 +24,7 @@ module.exports=function () {
     return WebpackMerge(commonConfig,{
         output: {
             path: path.resolve(__dirname,'../dist'),
-            filename: 'assets/ventor/[name].bundle.js',
+            filename: 'assets/ventor/[name].bundle.js'
         },
         watch:false,
         plugins: [
