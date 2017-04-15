@@ -5,6 +5,7 @@ class Contacto
    protected $nombre;
    protected $email;
    protected $mensaje;
+   protected  $servicios;
 
    public $data;
     
@@ -13,6 +14,7 @@ class Contacto
        $this->nombre = $data["nombre"];
        $this->email = $data["email"];
        $this->mensaje = $data["mensaje"];
+       $this->servicios = $data["servicios"];
    }
     
     public function getNombre(){
@@ -25,6 +27,10 @@ class Contacto
 
     public function getMensaje(){
          return $this->mensaje;
+    }
+
+    public function getServicios(){
+        return $this->servicios;
     }
 
 }

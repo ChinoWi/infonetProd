@@ -36,7 +36,7 @@ module.exports=function () {
                 'process.env': {
                     NODE_ENV: JSON.stringify('production')
                 }
-            }),
+            }),/*
             new webpack.optimize.UglifyJsPlugin({
                 beautify: false,
                 sourceMap: false,
@@ -49,6 +49,7 @@ module.exports=function () {
                 },
                 comments: false
             }),
+            */
             new CopyWebpackPlugin([{
                 from: './resources/apiPHP', to: 'apiPHP'
             }]),
