@@ -12,7 +12,13 @@ const NODE_MODULES='../node_modules'
 module.exports = {
     entry: {
         app:'./resources/assets/jsx/app.main.jsx',
-        admin:'./resources/assets/jsx/app.main.admin.jsx'
+
+        adminAngular:'./resources/assets/ts/app.main.ts',
+        adminAngularVendor: [
+            './resources/assets/ts/main.polyfill.ts',
+            './resources/assets/ts/main.vendor.ts'
+        ],
+
     },
     module: {
         rules: [
@@ -21,9 +27,17 @@ module.exports = {
                 exclude: /node_modules/,
                 use: 'babel-loader'
             },
+            { test: /\.ts$/,
+                exclude: /node_modules/,
+                loader: ['ts-loader','angular2-template-loader']
+            },
             {
                 test: /\.css?$/,
                 loaders: ['to-string-loader', 'css-loader']
+            },
+            {
+                test: /\.htm$/,
+                loader: "raw-loader"
             },
             {
                 test: /\.scss$/,
@@ -51,13 +65,17 @@ module.exports = {
 
     plugins: [
         new webpack.NoEmitOnErrorsPlugin(),
+
+
+
         new HtmlWebpackPlugin({
             title: 'Infonet Soluciones Project',
             // minify: {
             //     collapseWhitespace: true
             // },
             hash: true,
-            excludeChunks:['admin'],
+            chunks:['app','ventorReact'],
+            excludeChunks:['adminAngular','adminAngularVendor'],
             template: './resources/index.ejs', // Load a custom template (ejs by default see the FAQ for details)
         }),
         new HtmlWebpackPlugin({
@@ -67,10 +85,11 @@ module.exports = {
             // },
             hash: true,
             filename:'admin.html',
-            Chunks: ['admin'],
-            excludeChunks:['app'],
+            Chunks: ['adminAngular','adminAngularVendor'],
+            excludeChunks:['app','ventor'],
             template: './resources/admin.ejs', // Load a custom template (ejs by default see the FAQ for details)
         }),
+
 
         new ExtractTextPlugin({
             filename: 'assets/css/[name]-[chunkhash].css',
@@ -78,10 +97,12 @@ module.exports = {
             allChunks: true
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'ventor',
+            name: ['ventorReact'],
             filename: 'assets/ventor/[name].js',
             minChunks: 2,
         }),
+
+
         new webpack.LoaderOptionsPlugin({
             options: {
                 postcss: [
@@ -93,6 +114,7 @@ module.exports = {
         }),
     ],
     resolve : {
+        extensions: [ ".ts", ".js" ],
         modules : [NODE_MODULES, SRC]
     },
 }
