@@ -74,7 +74,6 @@ module.exports = {
             //     collapseWhitespace: true
             // },
             hash: true,
-            chunks:['app','ventorReact'],
             excludeChunks:['adminAngular','adminAngularVendor'],
             template: './resources/index.ejs', // Load a custom template (ejs by default see the FAQ for details)
         }),
@@ -86,7 +85,7 @@ module.exports = {
             hash: true,
             filename:'admin.html',
             Chunks: ['adminAngular','adminAngularVendor'],
-            excludeChunks:['app','ventor'],
+            excludeChunks:['ventorReact','app'],
             template: './resources/admin.ejs', // Load a custom template (ejs by default see the FAQ for details)
         }),
 
@@ -99,7 +98,12 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: ['ventorReact'],
             filename: 'assets/ventor/[name].js',
-            minChunks: 2,
+            chunks:['app']
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ['adminAngularVendor'],
+            filename: 'assets/ventor/[name].js',
+            chunks:['adminAngular']
         }),
 
 
