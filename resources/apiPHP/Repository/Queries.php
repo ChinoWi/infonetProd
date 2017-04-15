@@ -24,13 +24,15 @@ class Queries extends Conexion
          $nombre = $this->contacto->getNombre();
          $email = $this->contacto->getEmail();
          $mensaje = $this->contacto->getMensaje();
+         $services = $this->contacto->getServicios();
 
          $cn = new Conexion();
-         $query = 'insert into contacto(nombre,email,mensaje) values(:nombre,:email,:mensaje)';
+         $query = 'insert into contacto(nombre,email,mensaje,services) values(:nombre,:email,:mensaje,:services)';
          $sql = $cn->getConexion()->prepare($query);
          $sql->bindParam(':nombre',$nombre);
          $sql->bindParam(':email',$email);
          $sql->bindParam(':mensaje',$mensaje);
+         $sql->bindParam(':services',$services);
          $bandera = $sql->execute();
          return $bandera;
     }
