@@ -1,0 +1,51 @@
+/*codigo*/
+.container-mision{
+  background-image:url("../img/images/mission-3.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:50% 50%;
+  height:350px !important;
+  width:100% !important;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  margin:50px 0;
+}
+
+
+  .container-mision--title{
+    color:white;
+    font-weight:bold;
+    font-family: 'Roboto', sans-serif;
+    text-align:center;
+    padding-top:1em;
+    margin:0;
+  }
+
+  .container-mision--content{
+    color:white;
+    font-family: 'Montserrat', sans-serif;
+    line-height:2;
+    margin:30px 20px;
+  }
+
+
+
+.mision-link{
+  color:#222222;
+  position:fixed;
+  bottom:80px;
+  left:93%;
+  right:0;
+}
+
+.question-modal--title{
+  color:#0A8ECD !important;
+  font-family:'Roboto';
+}
+
+   .question-modal--content{
+      font-family:'Montserrat';
+      margin:0;
+   }
+
+
+

@@ -1,0 +1,8 @@
+Header always append X-Frame-Options SAMEORIGIN
+Header add Strict-Transport-Security "max-age=157680000"
+
+Header set X-Content-Type-Options nosniff
+Header set ServerSignature "Off"
+Header set ServerTokens "Prod"
+Header set X-Permitted-Cross-Domain-Policies "master-only"
+Header set X-XSS-Protection "1; mode=block"

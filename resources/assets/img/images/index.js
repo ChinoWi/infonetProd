@@ -1,0 +1,12 @@
+export { default as owasp } from './owasp.png';
+export { default as kali } from './kali.jpg';
+export { default as defacement } from './defacement.png';
+export { default as servidor } from './servidor.png';
+export { default as fondohack } from './fondohack.png';
+export { default as iconTarget1 } from './icon-target1.jpg';
+export { default as img1 } from './mission-3.jpg';
+export { default as homePorque } from './home_porque.png';
+export { default as homeAnalisis } from './home_analisis.png';
+export { default as homeAtaque } from './home_ataque.png';
+export { default as homeSeguro } from './home_seguro.png';
+export { default as contactPatrick } from './contact_patrick.png';
